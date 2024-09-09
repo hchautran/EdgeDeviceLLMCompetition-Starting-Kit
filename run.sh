@@ -10,7 +10,14 @@
 
 #source activate EdgeLLMCompetition
 cd opencompass
-CUDA_VISIBLE_DEVICES=0 python run.py --datasets truthfulqa_gen --hf-num-gpus 1 --hf-type base --hf-path microsoft/phi-2 --debug --model-kwargs device_map='auto' trust_remote_code=True
+CUDA_VISIBLE_DEVICES=0,1,2,3,4 python run.py \
+   --datasets truthfulqa_gen \
+   --hf-num-gpus 1 \
+   --hf-type base \
+   --hf-path microsoft/phi-2 \
+   --debug \
+   --model-kwargs device_map='auto' \
+      trust_remote_code=True
 
 #tested-model
 #microsoft/phi-2
